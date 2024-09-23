@@ -22,7 +22,13 @@ $arow3rdColor: #6091f6
   margin: 0
   padding: 0
   box-sizing: border-box
+  font-weight: 400
   font-size: clamp(10px, 5vw, 30px)
+
+.bold
+  font-weight: bold
+  strong
+    font-weight: bold
 
 html
   display: flex
@@ -68,7 +74,7 @@ header
 
 .personalPresentation
   display: flex
-  justify-content: space-between
+  justify-content: space-evenly
   flex-wrap: wrap
   width: 100%
   margin-top: clamp(30px, 10vw, 100px)
@@ -78,11 +84,12 @@ header
     margin: 0 5%
 
   .portrait
-    width: 30%
-    // retirer la height après avoir importé la photo
-    height: 400px
+    width: clamp(150px, 30%, 450px)
     margin: 0 5% 20px 5%
-    background-color: blue
+
+    img
+      width: 100%
+      object-fit: contain
 
 .slider
   margin-top: clamp(20px, 10vw, 120px)
@@ -115,7 +122,7 @@ header
       width: 90%
 
     .portrait
-      width: clamp(200px, 70%, 500px)
+      width: clamp(150px, 50%, 300px)
 
 @media screen and (min-width: 1024px)
   .bannerSubtitleMobile

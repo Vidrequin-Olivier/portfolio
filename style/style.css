@@ -20,7 +20,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-weight: 400;
   font-size: clamp(10px, 5vw, 30px);
+}
+
+.bold {
+  font-weight: bold;
+}
+.bold strong {
+  font-weight: bold;
 }
 
 html {
@@ -73,7 +81,7 @@ header h2 {
 
 .personalPresentation {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   width: 100%;
   margin-top: clamp(30px, 10vw, 100px);
@@ -83,10 +91,13 @@ header h2 {
   margin: 0 5%;
 }
 .personalPresentation .portrait {
-  width: 30%;
-  height: 400px;
+  width: clamp(150px, 30%, 450px);
   margin: 0 5% 20px 5%;
-  background-color: blue;
+}
+.personalPresentation .portrait img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .slider {
@@ -122,7 +133,7 @@ header h2 {
     width: 90%;
   }
   .personalPresentation .portrait {
-    width: clamp(200px, 70%, 500px);
+    width: clamp(150px, 50%, 300px);
   }
 }
 @media screen and (min-width: 1024px) {
