@@ -1,129 +1,52 @@
-// html background-color
-$htmlBackground: #e3ecff
-
-// header banner arow colors
-$arow1stColor: #0094ff80
-$arow2ndColor: #0080008a
-$arow3rdColor: #6091f6
-
-@keyframes frameFadeIn
-  to
-    opacity: 1
-
-.fadeIn
-  opacity: 0
-  animation: frameFadeIn 1s forwards
-.fadeIn1
-  animation-delay: 0.5s
-.fadeIn2
-  animation-delay: 1s
-
 *
   margin: 0
   padding: 0
   box-sizing: border-box
   font-weight: 400
-  font-size: clamp(10px, 5vw, 30px)
-
-.bold
-  font-weight: bold
-  strong
-    font-weight: bold
 
 html
   display: flex
   justify-content: center
-  background-color: $htmlBackground
 
 body
   display: flex
   flex-direction: column
-  justify-content: center
   width: clamp(375px, 100%, 1920px)
 
 header
-  display: flex
-  flex-direction: column
-  flex-wrap: wrap
-  align-items: center
-  width: 100%
-  margin-top: 30px
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+  grid-template-rows: clamp(300px, 30vw, 500px)
 
-  div
-    width: 80%
-    height: clamp(70px, 15vw, 140px)
-    display: flex
-    justify-content: center
-    align-items: center
-    color: white
-    filter: brightness(1.3)
-    &:nth-child(1)
-      background: repeating-linear-gradient(45deg, $arow1stColor 50px, $arow2ndColor 150px, $arow3rdColor 150px)
-      border-radius: 50px 50px 0 0
-    &:nth-child(2), &:nth-child(3)
-      background: repeating-linear-gradient(135deg, $arow1stColor 50px, $arow2ndColor 150px, $arow3rdColor 150px)
-      border-radius: 0 0 50px 50px
+  .titleContainer
+    grid-column: 1
+    grid-row: 1
+    margin-top: clamp(1px, 5vw, 70px)
+    height: fit-content
 
-  h1, h2
-    color: black
+  .personalPresentation
+    grid-column: 1
+    grid-row: 2
 
-  h1
-    font-size: clamp(20px, 5vw, 70px)
-  h2
-    font-size: clamp(20px, 4vw, 50px)
-
-.personalPresentation
-  display: flex
-  justify-content: space-evenly
-  flex-wrap: wrap
-  width: 100%
-  margin-top: clamp(30px, 10vw, 100px)
-
-  p
-    width: clamp(300px, 50%, 960px)
-    margin: 0 5%
-
-  .portrait
-    width: clamp(150px, 30%, 450px)
-    margin: 0 5% 20px 5%
+  figure
+    grid-column: 2
+    grid-row: 1 / 2
 
     img
       width: 100%
-      object-fit: contain
 
-.slider
-  margin-top: clamp(20px, 10vw, 120px)
+h1, h2
+  margin-top: clamp(1px, 1vw, 20px)
+  margin-bottom: clamp(1px, 2vw, 50px)
+  margin-left: clamp(20px, 5vw, 100px)
+  font-family: "Noto Serif", serif
+  font-style: italic
+  font-weight: 600
 
-  .sliderContainer
-    width: 80%
-    height: 200px
-    background-color: green
+h1
+  font-size: clamp(20px, 5vw, 70px)
+  color: darkcyan
 
-.tools
-  .toolsContainer
-    width: 80%
-    height: 200px
-    background-color: green
-
-.contact
-  .contactContainer
-    width: 80%
-    height: 200px
-    background-color: green
-
-@media screen and (max-width: 1023px)
-  .bannerSubtitleDesktop
-    display: none
-
-  .personalPresentation
-    align-items: center
-    flex-direction: column-reverse
-    p
-      width: 90%
-
-    .portrait
-      width: clamp(150px, 50%, 300px)
-
-@media screen and (min-width: 1024px)
-  .bannerSubtitleMobile
-    display: none
+h2
+  font-size: clamp(20px, 4vw, 50px)
+  color: lightseagreen
