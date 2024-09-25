@@ -19,28 +19,14 @@ body {
 header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: clamp(300px, 30vw, 500px);
+  grid-template-rows: repeat(2, clamp(300px, 30vw, 500px));
 }
 header .titleContainer {
   grid-column: 1;
   grid-row: 1;
   margin-top: clamp(1px, 5vw, 70px);
-  height: -moz-fit-content;
-  height: fit-content;
 }
-header .personalPresentation {
-  grid-column: 1;
-  grid-row: 2;
-}
-header figure {
-  grid-column: 2;
-  grid-row: 1/2;
-}
-header figure img {
-  width: 100%;
-}
-
-h1, h2 {
+header h1, header h2 {
   margin-top: clamp(1px, 1vw, 20px);
   margin-bottom: clamp(1px, 2vw, 50px);
   margin-left: clamp(20px, 5vw, 100px);
@@ -48,13 +34,52 @@ h1, h2 {
   font-style: italic;
   font-weight: 600;
 }
-
-h1 {
+header h1 {
   font-size: clamp(20px, 5vw, 70px);
   color: darkcyan;
 }
-
-h2 {
+header h2 {
   font-size: clamp(20px, 4vw, 50px);
   color: lightseagreen;
+}
+header .contactMe {
+  grid-column: 2;
+  grid-row: 1;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 10%;
+  margin-left: 5%;
+  padding: clamp(20px, 1vw, 50px);
+  border-radius: 15px;
+  text-decoration: underline;
+  background-color: rgba(32, 178, 170, 0.3019607843);
+  font-size: clamp(12px, 1.5vw, 24px);
+}
+header .personalPresentation {
+  grid-column: 1;
+  grid-row: 2;
+  padding: clamp(20px, 3vw, 50px);
+  font-size: clamp(12px, 1.5vw, 24px);
+  font-family: math;
+}
+header figure {
+  grid-column: 2;
+  grid-row: 1/3;
+}
+header figure img {
+  height: 100%;
+}
+header .linearGradient {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: end;
+  width: 100%;
+  height: 80%;
+  background: linear-gradient(180deg, transparent, white);
+}
+
+.bold, strong {
+  font-weight: 700;
 }/*# sourceMappingURL=style.css.map */
