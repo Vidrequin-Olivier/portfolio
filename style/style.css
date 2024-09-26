@@ -1,3 +1,9 @@
+:root {
+  --primaryColor: darkcyan;
+  --secondaryColor: lightseagreen;
+  --contactMe-backgroundColor: #20b2aa4d;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -36,11 +42,11 @@ header h1, header h2 {
 }
 header h1 {
   font-size: clamp(20px, 5vw, 70px);
-  color: darkcyan;
+  color: var(--primaryColor);
 }
 header h2 {
   font-size: clamp(20px, 4vw, 50px);
-  color: lightseagreen;
+  color: var(--secondaryColor);
 }
 header .contactMe {
   grid-column: 2;
@@ -52,10 +58,13 @@ header .contactMe {
   margin-top: 10%;
   margin-left: 5%;
   padding: clamp(20px, 1vw, 50px);
+  border: 1px, solid, black;
   border-radius: 15px;
   text-decoration: underline;
-  background-color: rgba(32, 178, 170, 0.3019607843);
+  color: var(--primaryColor);
+  background-color: var(--contactMe-backgroundColor);
   font-size: clamp(12px, 1.5vw, 24px);
+  z-index: 10;
 }
 header .personalPresentation {
   grid-column: 1;
@@ -63,6 +72,9 @@ header .personalPresentation {
   padding: clamp(20px, 3vw, 50px);
   font-size: clamp(12px, 1.5vw, 24px);
   font-family: math;
+}
+header .bold, header strong {
+  font-weight: 700;
 }
 header figure {
   grid-column: 2;
@@ -80,6 +92,19 @@ header .linearGradient {
   background: linear-gradient(180deg, transparent, white);
 }
 
-.bold, strong {
-  font-weight: 700;
+main .slider {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: clamp(80px, 8vw, 150px);
+  margin-bottom: clamp(80px, 8vw, 150px);
+}
+main .slider .sliderArrow {
+  width: 150px;
+  height: 200px;
+  border: none;
+  background-color: transparent;
+}
+main .slider .sliderLeftArrow, main .slider .sliderRightArrow {
+  font-size: 200px;
+  color: var(--primaryColor);
 }/*# sourceMappingURL=style.css.map */
