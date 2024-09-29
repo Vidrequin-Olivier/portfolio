@@ -98,12 +98,20 @@ header .linearGradient {
   background: linear-gradient(180deg, transparent, white);
 }
 
+main section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 main .slider {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: clamp(80px, 8vw, 150px);
-  margin-bottom: clamp(80px, 8vw, 150px);
+  width: clamp(400px, 100%, 1440px);
+}
+main .slider .slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 main .slider .sliderArrow {
   border: none;
@@ -111,16 +119,49 @@ main .slider .sliderArrow {
 }
 main .slider .sliderLeftArrow, main .slider .sliderRightArrow {
   font-size: clamp(60px, 12vw, 150px);
-  color: var(--primaryColor);
+  color: var(--secondaryColor);
 }
-main .slider .displayedProject {
+main .slider .slide {
   width: clamp(200px, 30vw, 500px);
+  height: clamp(380px, 55vw, 850px);
+  display: none;
 }
-main .slider .displayedProject img {
+main .slider .slide.active {
+  display: block;
+}
+main .slider img {
   width: 100%;
 }
-main .slider .displayedProject figcaption {
+main .slider figcaption {
   font-size: clamp(12px, 1.5vw, 24px);
+}
+main h3 {
+  margin-top: clamp(30px, 8vw, 150px);
+  margin-bottom: clamp(20px, 2vw, 50px);
+  font-size: clamp(25px, 4.5vw, 50px);
+  color: var(--secondaryColor);
+}
+main .toolsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: clamp(200px, 100vw, 1440px);
+  margin-bottom: 200px;
+  padding: 0 clamp(30px, 8vw, 50px);
+}
+main .toolsContainer li {
+  list-style-type: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: clamp(10px, 1vw, 20px);
+  font-size: clamp(15px, 2.5vw, 30px);
+}
+main .toolsContainer li figure {
+  display: flex;
+  align-items: center;
+}
+main .toolsContainer li figure figcaption {
+  margin-left: 10px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1080px) {

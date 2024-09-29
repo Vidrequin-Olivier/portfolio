@@ -35,21 +35,69 @@
     <div class="linearGradient"></div>
   </header>
   <main>
-    <div class="slider">
-      <button class="sliderArrow">
-        <i class="fa-solid fa-chevron-left sliderLeftArrow"></i>
-      </button>
-      <figure class="displayedProject">
-        <img src="./assets/images/projetBackend.png" alt="Photo exemple d'un projet que j'ai réalisé"">
-        <figcaption>
-          Sur ce projet, j'étais en charge de créer la partie serveur et la base de données.<br>
-          Cliquer <a href="https://github.com/Vidrequin-Olivier/Projet-6-dev-back-end" target="_blank">ici</a> pour voir le repository GitHub du projet.
-        </figcaption>
-      </figure>
-      <button class="sliderArrow">
-        <i class="fa-solid fa-chevron-right sliderRightArrow"></i>
-      </button>
-    </div>
+    <section>
+      <h3>Quelques projets que j'ai réalisés:</h3>
+      <div class="slider">
+        <button class="sliderArrow" onclick="changeSlide(-1)">
+          <i class="fa-solid fa-chevron-left sliderLeftArrow"></i>
+        </button>
+        <div class="slides">
+          <figure class="slide active">
+            <img src="./assets/images/projetBackend.png" alt="Photo exemple d'un projet que j'ai réalisé"">
+            <figcaption>
+              Sur ce projet, j'étais en charge de créer la partie serveur et la base de données.<br>
+              Cliquer <a href="https://github.com/Vidrequin-Olivier/Projet-6-dev-back-end" target="_blank">ici</a> pour voir le repository GitHub du projet.
+            </figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="./assets/images/test2.png" alt="Photo exemple d'un projet que j'ai réalisé"">
+            <figcaption>slide 2</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="./assets/images/test3.png" alt="Photo exemple d'un projet que j'ai réalisé"">
+            <figcaption>slide 3</figcaption>
+          </figure>
+        </div>
+        <button class="sliderArrow" onclick="changeSlide(1)">
+          <i class="fa-solid fa-chevron-right sliderRightArrow"></i>
+        </button>
+      </div>
+    </section>
+    <section>
+      <h3>Languages et outils:</h3>
+      <ul class="toolsContainer">
+        <li>
+          <figure>
+            <i class="fa-brands fa-html5 fa-2xl" style="color: #961414;"></i>
+            <figcaption>HTML</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <i class="fa-brands fa-css3-alt fa-2xl" style="color: #74C0FC;"></i>
+            <figcaption>CSS</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <i class="fa-brands fa-js fa-2xl" style="color: #FFD43B;"></i>
+            <figcaption>JavaScript</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <i class="fa-brands fa-react fa-2xl" style="color: #0091ff;"></i>
+            <figcaption>React</figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <i class="fa-brands fa-node fa-2xl" style="color: #00cc8f;"></i>
+            <figcaption>Node</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </section>
   </main>
 </body>
 </html>
