@@ -2,6 +2,7 @@
   --primaryColor: darkcyan
   --secondaryColor: lightseagreen
   --contactMe-backgroundColor: #20b2aa4d
+  --transitionDuration: 500ms
 
 *
   margin: 0
@@ -78,6 +79,8 @@ header
     width: fit-content
     height: clamp(300px, 50vw, 800px)
     align-self: end
+    opacity: 1
+    transition: opacity var(--transitionDuration)
 
     img
       height: 100%

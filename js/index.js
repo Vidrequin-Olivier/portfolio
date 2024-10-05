@@ -2,13 +2,29 @@ let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
 function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) {
-            slide.classList.add('active');
-        };
-    });
-};
+	const timeout = 500;
+	slides.forEach((slide, i) => {
+		if (slide.classList.contains('active') && i !== index) {
+			slide.style.transition = 'opacity var(--transitionDuration)';
+			slide.style.opacity = 0;
+			setTimeout(() => {
+				slide.classList.remove('active');
+			}, timeout);
+		}
+
+		setTimeout(() => {
+			if (i === index) {
+				slide.classList.add('active');
+				slide.style.opacity = 0;
+				slide.style.transition = 'opacity var(--transitionDuration)';
+				setTimeout(() => {
+					slide.style.opacity = 1;
+				}, 50);
+			};
+		}, timeout);
+	});
+}
+
 
 function changeSlide(direction) {
     currentSlide += direction;

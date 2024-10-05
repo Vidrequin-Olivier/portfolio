@@ -2,6 +2,7 @@
   --primaryColor: darkcyan;
   --secondaryColor: lightseagreen;
   --contactMe-backgroundColor: #20b2aa4d;
+  --transitionDuration: 500ms;
 }
 
 * {
@@ -86,6 +87,8 @@ header figure {
   width: fit-content;
   height: clamp(300px, 50vw, 800px);
   align-self: end;
+  opacity: 1;
+  transition: opacity var(--transitionDuration);
 }
 header figure img {
   height: 100%;
