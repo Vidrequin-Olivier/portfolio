@@ -25,7 +25,6 @@ function showSlide(index) {
 	});
 }
 
-
 function changeSlide(direction) {
     currentSlide += direction;
     if (currentSlide < 0) {
