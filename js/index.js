@@ -1,3 +1,18 @@
+const toggleGptImage = () => {
+	const gptLightTheme = document.querySelector(".gptLightTheme");
+	const gptDarkTheme = document.querySelector(".gptDarkTheme");
+	(gptLightTheme.style.display === "none" 
+		? (() => {
+				gptLightTheme.style.display = "block";
+				gptDarkTheme.style.display = "none";
+			})
+		: (() => {
+				gptLightTheme.style.display = "none";
+				gptDarkTheme.style.display = "block";
+			})
+	)();
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const toggleButton = document.getElementById('themeToggleButton');
   const currentTheme = localStorage.getItem('theme') || 'light';
@@ -14,8 +29,15 @@ document.addEventListener('DOMContentLoaded', () => {
 				element.classList.add('darkTheme');
 			}
 		});
+		
+		// à retirer après la création du nouveau bouton de changement de thême
     toggleButton.textContent = 'Switch to Light Mode';
-  }
+
+		const gptLightTheme = document.querySelector(".gptLightTheme");
+		const gptDarkTheme = document.querySelector(".gptDarkTheme");
+		gptLightTheme.style.display = "none";
+		gptDarkTheme.style.display = "block";
+  };
 
   toggleButton.addEventListener('click', () => {
 		darkThemeItemsList.forEach((element) => {
@@ -23,10 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
 				element.classList.toggle('darkTheme');
 			}
 		});
+
+		toggleGptImage();
 		
     const newTheme = document.body.classList.contains('darkTheme') ? 'dark' : 'light';
-
+		
+		// à retirer après la création du nouveau bouton de changement de thême
     toggleButton.textContent = newTheme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+
     localStorage.setItem('theme', newTheme);
   });
 });
@@ -35,7 +61,7 @@ let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
 function showSlide(index) {
-	const timeout = 500;
+	const timeout = 350;
 	slides.forEach((slide, i) => {
 		if (slide.classList.contains('active') && i !== index) {
 			slide.style.transition = 'opacity var(--transitionDuration)';

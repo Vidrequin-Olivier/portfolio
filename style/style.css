@@ -155,7 +155,7 @@ main .slider .slides {
 main .slider .sliderArrow {
   height: -moz-fit-content;
   height: fit-content;
-  margin-top: clamp(50px, 15vw, 250px);
+  margin-top: clamp(100px, 15vw, 250px);
   border: none;
   background-color: transparent;
 }
