@@ -139,6 +139,9 @@ main {
   flex-direction: column;
   align-items: center;
 }
+main a {
+  color: var(--primaryColor);
+}
 main section {
   display: flex;
   flex-direction: column;
