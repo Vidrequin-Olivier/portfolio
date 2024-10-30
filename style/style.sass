@@ -210,6 +210,7 @@ main
     li
       list-style-type: none
       width: fit-content
+      align-content: center
       margin: clamp(10px, 1vw, 20px)
       font-size: clamp(15px, 2.5vw, 30px)
 
@@ -218,13 +219,14 @@ main
         align-items: center
 
         img
-          width: clamp(26px, 5.5vw, 60px)
+          width: clamp(26px, 5.5vw, 70px)
+
+        svg
+          width: clamp(20px, 3vw, 70px)
+          height: clamp(20px, 3vw, 70px)
 
         figcaption
           margin-left: 10px
-
-    .node
-      padding-top: clamp(4px, 1vw, 12px)
 
   .fontLinks
     width: fit-content
@@ -273,12 +275,6 @@ main
   main
     .toolsContainer
       grid-template-columns: repeat(3, 1fr)
-
-      .react
-        padding-top: clamp(4px, 1vw, 12px)
-
-      .github
-        padding-top: clamp(8px, 1vw, 12px)
 
 @media screen and (max-width: 420px)
   main

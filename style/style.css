@@ -228,6 +228,7 @@ main .toolsContainer li {
   list-style-type: none;
   width: -moz-fit-content;
   width: fit-content;
+  align-content: center;
   margin: clamp(10px, 1vw, 20px);
   font-size: clamp(15px, 2.5vw, 30px);
 }
@@ -236,13 +237,14 @@ main .toolsContainer li figure {
   align-items: center;
 }
 main .toolsContainer li figure img {
-  width: clamp(26px, 5.5vw, 60px);
+  width: clamp(26px, 5.5vw, 70px);
+}
+main .toolsContainer li figure svg {
+  width: clamp(20px, 3vw, 70px);
+  height: clamp(20px, 3vw, 70px);
 }
 main .toolsContainer li figure figcaption {
   margin-left: 10px;
-}
-main .toolsContainer .node {
-  padding-top: clamp(4px, 1vw, 12px);
 }
 main .fontLinks {
   width: -moz-fit-content;
@@ -290,12 +292,6 @@ main .fontLinks {
   }
   main .toolsContainer {
     grid-template-columns: repeat(3, 1fr);
-  }
-  main .toolsContainer .react {
-    padding-top: clamp(4px, 1vw, 12px);
-  }
-  main .toolsContainer .github {
-    padding-top: clamp(8px, 1vw, 12px);
   }
 }
 @media screen and (max-width: 420px) {
