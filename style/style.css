@@ -34,6 +34,46 @@ body.darkTheme {
 header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  position: relative;
+}
+header .themeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  right: 0;
+}
+header .themeContainer .themeToggleButton {
+  padding: clamp(10px, 0.7vw, 25px);
+  border-radius: 25px;
+  margin: clamp(10px, 1vw, 20px);
+  cursor: pointer;
+  border: none;
+  color: var(--primaryColor);
+  background-color: var(--contactMe-backgroundColor);
+  font-size: clamp(8px, 1vw, 16px);
+  z-index: 10;
+}
+header .themeContainer .themeToggleButton.darkTheme {
+  color: #003737;
+  background-color: var(--darkTheme-primaryColor);
+}
+header .themeContainer .themeToggleButton:hover {
+  color: white;
+  background-color: rgba(32, 178, 170, 0.6117647059);
+}
+header .themeContainer i {
+  font-size: clamp(20px, 3vw, 40px);
+}
+header .themeContainer .fa-sun {
+  display: none;
+  color: #dbb733;
+}
+header .themeContainer .fa-moon {
+  display: block;
+  color: #1f60d1;
 }
 header .titleContainer {
   grid-column: 1;
@@ -118,20 +158,6 @@ header .linearGradient {
 }
 header .linearGradient.darkTheme {
   background: linear-gradient(180deg, transparent, var(--darkTheme-backgroundColor));
-}
-header .themeToggle {
-  padding: 10px 20px;
-  cursor: pointer;
-  border: none;
-  background-color: #007bff;
-  color: white;
-  font-size: 16px;
-  border-radius: 5px;
-  margin: 20px;
-  transition: background-color 0.3s;
-}
-header .themeToggle:hover {
-  background-color: #0056b3;
 }
 
 main {

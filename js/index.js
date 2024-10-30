@@ -1,18 +1,25 @@
 const darkThemeItemsList = 	[ 
 	document.body, 
-	document.querySelector(".linearGradient"), 
+	document.querySelector(".themeToggleButton"),
+	document.querySelector(".linearGradient"),
 	document.querySelector("h1"), 
 	document.querySelector(".contactMe")
 ];
 
-function toggleGptImage() {
+function toggleImages() {
+	const sun = document.querySelector(".fa-sun");
+	const moon = document.querySelector(".fa-moon");
 	const gptLightTheme = document.querySelector(".gptLightTheme");
 	const gptDarkTheme = document.querySelector(".gptDarkTheme");
 
   if (gptLightTheme.style.display === "block") {
+    moon.style.display = "none";
+    sun.style.display = "block";
     gptLightTheme.style.display = "none";
     gptDarkTheme.style.display = "block";
   } else {
+    sun.style.display = "none";
+    moon.style.display = "block";
     gptDarkTheme.style.display = "none";
     gptLightTheme.style.display = "block";
   };
@@ -25,26 +32,25 @@ function toggleButtonListener() {
 		};
 	});
 
-	toggleGptImage();
+	toggleImages();
 	
 	const newTheme = document.body.classList.contains('darkTheme') ? 'dark' : 'light';
-	
-	// à retirer après la création du nouveau bouton de changement de thême
-	const toggleButton = document.getElementById('themeToggleButton');
-	toggleButton.textContent = newTheme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
-
+  const toggleButton = document.querySelector(".themeToggleButton");
+	toggleButton.textContent = newTheme === 'dark' ? "Thème Clair" : "Thème Sombre";
 	localStorage.setItem('theme', newTheme);
 };
 
 function handleTheme() {
-	// à retirer après la création du nouveau bouton de changement de thême
-	const toggleButton = document.getElementById('themeToggleButton');
-
+  const toggleButton = document.querySelector(".themeToggleButton");
   const currentTheme = localStorage.getItem('theme') || 'light';
+	const sun = document.querySelector(".fa-sun");
+	const moon = document.querySelector(".fa-moon");
 	const gptLightTheme = document.querySelector(".gptLightTheme");
 	const gptDarkTheme = document.querySelector(".gptDarkTheme");
 
 	if (currentTheme === 'light') {
+		sun.style.display = "none";
+    moon.style.display = "block";
 		gptLightTheme.style.display = "block";
 		gptDarkTheme.style.display = "none";
   } else {
@@ -53,17 +59,16 @@ function handleTheme() {
 				element.classList.add('darkTheme');
 			};
 		});
-		
-		// à retirer après la création du nouveau bouton de changement de thême
-    toggleButton.textContent = 'Switch to Light Mode';
-
+    toggleButton.textContent = "Thème clair";
+    moon.style.display = "none";
+    sun.style.display = "block";
 		gptLightTheme.style.display = "none";
 		gptDarkTheme.style.display = "block";
 	}
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  const toggleButton = document.getElementById('themeToggleButton');
+  const toggleButton = document.querySelector(".themeToggleButton");
 	toggleButton.addEventListener('click', () => {
 		toggleButtonListener();
   });
