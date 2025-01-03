@@ -1,27 +1,57 @@
 const darkThemeItemsList = 	[ 
 	document.body, 
-	document.querySelector(".themeToggleButton"),
-	document.querySelector(".linearGradient"),
-	document.querySelector("h1"), 
-	document.querySelector(".contactMe")
+	document.querySelector('header'),
+	document.querySelector('.headerTitle'),
+	document.querySelector('.burgerMenu'),
+	document.querySelector('.menu'),
+	document.querySelector('.themeToggleButton'),
+	document.querySelector('.linearGradient'),
+	document.querySelector('h1'), 
+	...document.querySelectorAll('.contactMe')
 ];
 
-function toggleImages() {
-	const sun = document.querySelector(".fa-sun");
-	const moon = document.querySelector(".fa-moon");
-	const gptLightTheme = document.querySelector(".gptLightTheme");
-	const gptDarkTheme = document.querySelector(".gptDarkTheme");
+let slideAnimation = false;
 
-  if (gptLightTheme.style.display === "block") {
-    moon.style.display = "none";
-    sun.style.display = "block";
-    gptLightTheme.style.display = "none";
-    gptDarkTheme.style.display = "block";
+document.addEventListener('DOMContentLoaded', () => {
+  const burgerButton = document.querySelector('.burgerButton');
+  const menu = document.querySelector('.menu');
+	const lines = burgerButton.querySelectorAll('.line');
+
+  burgerButton.addEventListener('click', () => {
+    burgerButton.classList.toggle('open');
+    menu.classList.toggle('visible');
+  });
+
+  burgerButton.addEventListener('mouseenter', () => {
+    lines.forEach(line => {
+      line.style.backgroundColor = '#f5f5f5';
+    });
+  });
+
+  burgerButton.addEventListener('mouseleave', () => {
+    lines.forEach(line => {
+      line.style.backgroundColor ='dimgrey';
+    });
+  });
+});
+
+
+function toggleImages() {
+	const sun = document.querySelector('.fa-sun');
+	const moon = document.querySelector('.fa-moon');
+	const gptLightTheme = document.querySelector('.gptLightTheme');
+	const gptDarkTheme = document.querySelector('.gptDarkTheme');
+
+  if (gptLightTheme.style.display === 'block') {
+    moon.style.display = 'none';
+    sun.style.display = 'block';
+    gptLightTheme.style.display = 'none';
+    gptDarkTheme.style.display = 'block';
   } else {
-    sun.style.display = "none";
-    moon.style.display = "block";
-    gptDarkTheme.style.display = "none";
-    gptLightTheme.style.display = "block";
+    sun.style.display = 'none';
+    moon.style.display = 'block';
+    gptDarkTheme.style.display = 'none';
+    gptLightTheme.style.display = 'block';
   };
 };
 
@@ -35,40 +65,40 @@ function toggleButtonListener() {
 	toggleImages();
 	
 	const newTheme = document.body.classList.contains('darkTheme') ? 'dark' : 'light';
-  const toggleButton = document.querySelector(".themeToggleButton");
-	toggleButton.textContent = newTheme === 'dark' ? "Thème Clair" : "Thème Sombre";
+  const toggleButton = document.querySelector('.themeToggleButton');
+	toggleButton.innerHTML = newTheme === 'dark' ? 'Basculer en<br>Thème clair' : 'Basculer en<br>Thème sombre';
 	localStorage.setItem('theme', newTheme);
 };
 
 function handleTheme() {
-  const toggleButton = document.querySelector(".themeToggleButton");
+  const toggleButton = document.querySelector('.themeToggleButton');
   const currentTheme = localStorage.getItem('theme') || 'light';
-	const sun = document.querySelector(".fa-sun");
-	const moon = document.querySelector(".fa-moon");
-	const gptLightTheme = document.querySelector(".gptLightTheme");
-	const gptDarkTheme = document.querySelector(".gptDarkTheme");
+	const sun = document.querySelector('.fa-sun');
+	const moon = document.querySelector('.fa-moon');
+	const gptLightTheme = document.querySelector('.gptLightTheme');
+	const gptDarkTheme = document.querySelector('.gptDarkTheme');
 
 	if (currentTheme === 'light') {
-		sun.style.display = "none";
-    moon.style.display = "block";
-		gptLightTheme.style.display = "block";
-		gptDarkTheme.style.display = "none";
+		sun.style.display = 'none';
+    moon.style.display = 'block';
+		gptLightTheme.style.display = 'block';
+		gptDarkTheme.style.display = 'none';
   } else {
 		darkThemeItemsList.forEach((element) => {
 			if (element) {
 				element.classList.add('darkTheme');
 			};
 		});
-    toggleButton.textContent = "Thème clair";
-    moon.style.display = "none";
-    sun.style.display = "block";
-		gptLightTheme.style.display = "none";
-		gptDarkTheme.style.display = "block";
+    toggleButton.innerHTML = 'Basculer en<br>Thème clair';
+    moon.style.display = 'none';
+    sun.style.display = 'block';
+		gptLightTheme.style.display = 'none';
+		gptDarkTheme.style.display = 'block';
 	}
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  const toggleButton = document.querySelector(".themeToggleButton");
+  const toggleButton = document.querySelector('.themeToggleButton');
 	toggleButton.addEventListener('click', () => {
 		toggleButtonListener();
   });
@@ -79,6 +109,8 @@ let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 
 function showSlide(index) {
+	if (slideAnimation) return;
+	slideAnimation = true;
 	const timeout = 350;
 	slides.forEach((slide, i) => {
 		if (slide.classList.contains('active') && i !== index) {
@@ -98,6 +130,7 @@ function showSlide(index) {
 					slide.style.opacity = 1;
 				}, 50);
 			};
+			slideAnimation = false;
 		}, timeout);
 	});
 };
